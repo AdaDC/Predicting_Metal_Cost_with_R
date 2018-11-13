@@ -9,12 +9,12 @@
     "id" : "5136FB01",
     "lastKnownWriteTime" : 1542086863,
     "last_content_update" : 1542086863430,
-    "path" : "~/Desktop/computational-project-cookie-cutter/doc/Predict Metal Cost.Rmd",
+    "path" : "~/Desktop/Predicting_Metal_Costs/doc/Predict Metal Cost.Rmd",
     "project_path" : "doc/Predict Metal Cost.Rmd",
     "properties" : {
         "tempName" : "Untitled1"
     },
-    "relative_order" : 5,
+    "relative_order" : 6,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_markdown"

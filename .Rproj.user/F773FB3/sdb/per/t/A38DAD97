@@ -9,11 +9,11 @@
     "id" : "A38DAD97",
     "lastKnownWriteTime" : 1542075413,
     "last_content_update" : 1542075413929,
-    "path" : "~/Desktop/computational-project-cookie-cutter/src/03_model_building.R",
+    "path" : "~/Desktop/Predicting_Metal_Costs/src/03_model_building.R",
     "project_path" : "src/03_model_building.R",
     "properties" : {
     },
-    "relative_order" : 3,
+    "relative_order" : 5,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

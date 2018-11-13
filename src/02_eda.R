@@ -26,6 +26,22 @@ ggplot(output_vars_melted, aes(x=date, y=value, col=variable)) + geom_line() +
       ggtitle("Historic Prices for Copper and Zinc") +
       theme_stata()
 
+# Look at price differences
+price_dif <- data.frame(date = data$date, price_difference = data$copper_price - data$zinc_price)
+
+ggplot(data = price_dif, aes(x = date, y = price_difference)) +
+      geom_area() +
+      ggtitle("Differences in Cost") +
+      scale_x_date(date_breaks = "years" , date_labels = "%Y") +
+      #xlab("Year") +
+      #ylab("Price in USD") +
+      labs(title = "Differences in Cost",
+       subtitle = "Price of Copper - Price of Zinc",
+       x = "Year", y = "Price in USD") +
+      theme_stata() +
+      theme(axis.text.x = element_text(angle=90))
+
+
 ## Generate time series of all variables
 all_vars_melted <- melt(data, id = "date")
 qplot(date, value, data = all_vars_melted, geom = "line", group = variable) +
@@ -34,11 +50,8 @@ qplot(date, value, data = all_vars_melted, geom = "line", group = variable) +
       ggtitle("Time Series of all Variables") +
 
 # We can quickly perform EDA with the DataExplorer package
-#Install if the package doesn't exist 
-#install.packages('DataExplorer') 
-library(DataExplorer)
+require(DataExplorer)
 plot_missing(data) # show missing values
 plot_histogram(data) # see distribution of values
 plot_correlation(data[1:106, -1], type = 'all') #correlation, without the last five rows of missing data and date
-
 
