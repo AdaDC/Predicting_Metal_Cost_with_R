@@ -1,0 +1,512 @@
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=a_series_df,aes(month,big),color="blue") +
+geom_line(data=zinc_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Zinc") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_zinc..data.", "predict.RF_zinc..data.", "zinc_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_rect(data=data.frame(xmin=decimal_date(as.Date(c("1924-01-01"))),
+xmax=decimal_date(as.Date(c("1928-12-31"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=zinc_melt,
+aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Zinc") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_zinc..data.", "predict.RF_zinc..data.", "zinc_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_rect(data=data.frame(xmin=(as.Date(c("1924-01-01"))),
+xmax=(as.Date(c("1928-12-31"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=zinc_melt,
+aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Zinc") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_zinc..data.", "predict.RF_zinc..data.", "zinc_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=zinc_melt,
+aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Zinc") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_zinc..data.", "predict.RF_zinc..data.", "zinc_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=zinc_melt,
+aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=zinc_melt,
+aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=zinc_melt,
+aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot(copper_melt, aes(x=date, y=value, col=variable)) + geom_line() +
+ggtitle("Comparison of Models' Predictions for Copper") +
+scale_shape_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price"))
+ggplot() +
+copper_melt, aes(x=date, y=value, col=variable)) + geom_line() +
+ggtitle("Comparison of Models' Predictions for Copper") +
+scale_shape_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price"))
+ggplot() +
+geom_line(copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Comparison of Models' Predictions for Copper") +
+scale_shape_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price"))
+ggplot() +
+geom_line(copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Comparison of Models' Predictions for Copper") +
+scale_shape_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price"))
+)
+ggplot() +
+geom_line(copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Comparison of Models' Predictions for Copper") +
+scale_shape_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price"))
+ggplot() +
+geom_line(copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Comparison of Models' Predictions for Copper") +
+scale_shape_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price"))
+ggplot() +
+geom_line(copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Comparison of Models' Predictions for Copper") +
+scale_shape_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price"))
+> ggplot()
+>       geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
++       # geom_rect(data=rect, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),
++       #           color="transparent", fill="orange", alpha=0.3) +
++       ggtitle("Predictions for Copper") +
++       scale_color_discrete(name  ="Models",
++                           breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
++                           labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot()
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+# geom_rect(data=rect, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),
+#           color="transparent", fill="orange", alpha=0.3) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),                           labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+# geom_rect(data=rect, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),
+#           color="transparent", fill="orange", alpha=0.3) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),                           labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),                           labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price") )
+copper_melt$date
+View(copper_melt)
+copper_melt$date[copper_melt$variable == ]
+x <- complete.cases(copper_melt)
+x <- copper_melt[complete.cases(copper_melt)]
+x <- copper_melt[complete.cases(copper_melt), ]
+copper_melt <- copper_melt[complete.cases(copper_melt), ] # remove rows with missing data
+ggplot() +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=zinc_melt,
+aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+View(copper_melt)
+summary(copper_melt$date)
+copper_melt <- melt(all_results_copper, id = "date")
+# Plot results
+ggplot() +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=zinc_melt,
+aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+copper_melt <- copper_melt[complete.cases(copper_melt), ] # remove rows with missing data
+ggplot() +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+geom_line(data=zinc_melt,
+aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+copper_melt <- melt(all_results_copper, id = "date")
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price") )
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")
+)
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3)
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim((as.Date(c("2010-01-01"))), (as.Date(c("2017-04-01"))))
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim((as.Date(c("1991-01-01"))), (as.Date(c("2017-04-01"))))
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3)
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim((as.Date(c("1991-01-01"))), (as.Date(c("2017-01-01"))))
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim((as.Date(c("2010-01-01"))), (as.Date(c("2017-04-01"))))
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim((as.Date(c("1991-01-01"))), (as.Date(c("2017-01-01"))))
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3)
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim(as.Date("1991-01-01"), as.Date("2017-04-01"))
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-04-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim(as.Date("1991-01-01"), as.Date("2017-01-01"))
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-01-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim(as.Date("1991-01-01"), as.Date("2017-01-01"))
+summary(copper_melt$date)
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2017-01-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim(as.Date("1991-01-01"), as.Date("2018-07-01"))
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2018-07-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim(as.Date("1991-01-01"), as.Date("2018-07-01"))
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2018-01-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlim(as.Date("1991-01-01"), as.Date("2018-01-01"))
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2018-01-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3)
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2018-01-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlab("Year") +
+ylab("Price in USD")
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2018-01-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlab("Year") +
+ylab("Price in USD") +
+theme_economist()
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2018-01-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlab("Year") +
+ylab("Price in USD") +
+theme_void()
+## plot with legend and highlight
+ggplot() +
+geom_line(data=copper_melt, aes(x=date, y=value, col=variable)) +
+ggtitle("Predictions for Copper") +
+scale_color_discrete(name  ="Models",
+breaks=c("predict.simple_LR_copper..data.", "predict.RF_copper..data.", "copper_price"),
+labels=c("Linear Regression", "Random Forest", "Actual Price")) +
+geom_rect(data=data.frame(xmin=(as.Date(c("2010-01-01"))),
+xmax=(as.Date(c("2018-01-01"))),
+ymin=-Inf,
+ymax=Inf),
+aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax),
+fill="orange",alpha=0.3) +
+xlab("Year") +
+ylab("Price in USD") +
+theme_economist()
+require("ggthemes")
+install.packages("ggthemes") # Install
+library(ggthemes) # Load

@@ -1,60 +1,75 @@
-# computational-project-cookie-cutter
+# Forecasting Copper and Zinc Quarterly Prices
+Adamma Morrison
+Nov 13, 2018
+---
 
-[![DOI](https://zenodo.org/badge/11594/chendaniely/computational-project-cookie-cutter.svg)](#DOI)
+To run this project download or clone repository.  Double click the .Rproj file to start analysis.  The scripts are contained in the src folder. 
 
-A cookie cutter (aka project template) to set up a folder structure for a computational project.
-This is a quick way to setup a folder structure that follows one standard to organize a project.
-This helps with project management, reproducibility, sharing, and publishing your data, analysis, and results.
+##Method: The data for the analysis was obtained from the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/series/PCOPPUSDQ) and Datahub.io.  Please see below for list of variables.  This analysis covers the years 1991 – 2020.
 
-This project was inspired (and modeled off) by:
+1.	Date
+2.	Global price of Copper, U.S. Dollars per Metric Ton, Not Seasonally Adjusted (PCOPPUSDM)
+3.	Global price of Zinc, U.S. Dollars per Metric Ton, Not Seasonally Adjusted (PZINCUSDM)
+4.	12-Month London Interbank Offered Rate (LIBOR), based on U.S. Dollar, Percent, Not Seasonally Adjusted (USD12MD156N)
+5.	3-Month London Interbank Offered Rate (LIBOR), based on U.S. Dollar, Percent, Not Seasonally Adjusted (USD3MTD156N)
+6.	Global price of Brent Crude, U.S. Dollars per Barrell, Not Seasonally Adjusted (POILBREUSDQ)
+7.	Global price of Natural Gas, US Henry Hub Gas, U.S. Dollars per Million Metric British Thermal Unit, Not Seasonally Adjusted (PNGASUSUSDM)
+8.	S&P 500, Index, Not Seasonally Adjusted (SP500)
+9.	NASDAQ Composite Index, Index Feb 5, 1971=100, Not Seasonally Adjusted (NASDAQCOM)
+10.	Industrial Production: Mining: Copper, nickel, lead, and zinc mining, Index 2012=100, Not Seasonally Adjusted (IPG21223NQ)
+11.	Global price of Copper, U.S. Dollars per Metric Ton, Not Seasonally Adjusted (PCOPPUSDM) – end of period, percent change
+12.	Global price of Zinc, U.S. Dollars per Metric Ton, Not Seasonally Adjusted (PZINCUSDM) – end of period, percent change
+13.	Real Gross Domestic Product, Percent Change from Quarter One Year Ago, Seasonally Adjusted (A191RO1Q156NBEA)
 
-[Noble WS 2009 A Quick Guide to Organizing Computational Biology Projects. PLoS Comput Biol 5 7: e1000424. doi:10.1371/journal.pcbi.1000424](http://dx.doi.org/10.1371/journal.pcbi.1000424)
 
-## What it does
-the `setup_project_dir.sh` script creates the following folder structure:
+##Step 1- Data Preparation – 01_data_cleaning.R
 
-    Path_Provided
-    |- doc/           # directory for documentation, one subdirectory for manuscript
-    |
-    |- data/          # data for storing fixed data sets
-    |
-    |- src/           # any source code
-    |
-    |- bin/           # any compiled binaries or scripts
-    |
-    |- results/       # output for tracking computational experiments performed on data
+The original dataset from the bank contained 111 observations of 13 variables.  S&P500 information was missing for 1991 – 2008, and was filled in from  datahub.io.
+There were 5 rows with missing information for percent change zinc, percent change copper, natural gas, crude oil, zinc price, and copper price.  These 5 rows were for the dates 2017-07-01 to 2018-07-01.
+![missing data](results/missing_data.jpg)
+The script for this step generates a file called cleaned_data.csv.  This file will be used to build our models.
+ 
+##Step 2 – Exploratory Data Analysis – 02_eda.R
 
-A README containing a brief blurb is placed in each folder.
-This is because git will not track empty folders and placing a README will
-remind you of what goes in each folder, and also the overall
-folder structure will be retained
+This script will perform exploratory data analysis, and generate graphs of the cleaned dataset.  
+![historic prices](results/historic prices for metals.jpeg)
 
-## How to install
-There are a few ways set everything up.
+![time series all vars](results/time_series_all_variables.jpeg)
 
-1.  fork/clone the repo to your computer
-2.  download and extract the zip on the right
-3.  download the script by clicking on `setup_project_dir.sh` above and `right-click` > `save link as...` on the `raw` button
-4.  downloading the script directly: `wget https://github.com/chendaniely/computational-project-cookie-cutter/raw/master/setup_project_dir.sh`
+A quick look at the time series for all variables shows the price for zinc and copper seems to be most closely related to LIBOR rate.  The London Interbank Offered Rate is the rate of interest for wholesale money markets in London.  This input was included in the model because [Bilal Zonjy](https://bilalzonjy.github.io/432/index.html) found it to be a good predictor of copper prices.  Our models will include the 3 month and 12 month LIBOR rates.
 
-The above methods all accomplish the same thing, it gets the script onto your computer.
-Use which ever one makes sense.
+![corr](results/nput_correlations.jpeg)
 
-## How to use
-go to the directory where the `setup_project_dir.sh`
-is and run the following line in your terminal
+The correlation graph shows which inputs are positively and negatively correlated with each other.  Blue means negative correlation; as one variable increases the other one decreases.  Red means positive correlation; as one variable increases so does the other.  
+	The prices for zinc and copper are strongly correlated with each other (0.82), and as expected, so are the NASDAQ and SP500 (0.96).  Copper’s and zinc’s prices are strongly negatively correlated with industrial mining production for precious metals, crude oil price, and the LIBOR rate. This mean that when the LIBOR rate is higher, so is the price for crude oil.  During these times, the price for zinc and copper are low.  This inverse relationship between metal and crude oil price is interesting, and should be further explored.
 
-`bash setup_project_dir.sh /directory/to/where/your/project/is`
 
-Enjoy!
 
-## Use it anywhere
-If you want to be able to call this script no matter where you are, you can add the following lines to your `.bashrc`, `.bash_alias`, etc (Note: you only need it in one of them)
+##Step 3 – Model Building – 03_model_building.R
 
-`alias pinit='/path/to/where/the/script/is/setup_project_dir.sh'`
+	Separate models were made for zinc and copper price with the following four algorithms.
 
-and you can use it as such: `pinit /path/to/folder` or if you are already in the folder `pinit .`
+1.	Simple Linear Regression – this is the simplest kind of model, and is the easiest to interpret.  It will serve as a baseline for comparison.  These regression models did not include the percent change variables.  There variables are related to zinc and copper price, and linear regression models do not work with highly correlated predictors.  See <https://en.wikipedia.org/wiki/Multicollinearity> for explanation.
+2.	ARIMA Time Series Forecasting – See <https://www.statmethods.net/advstats/timeseries.html> for explanation
+3.	Neural Network Time Series Forecasting – See <http://kourentzes.com/forecasting/2017/02/10/forecasting-time-series-with-neural-networks-in-r/> for explanation.  Neural networks are a deep learning algorithm, and often do well with nonlinear data.  Our dataset is a bit small for this method, but we will try it any way.
+4.	Random Forest Model – Our models combine 600 decision trees.
 
-## Similar Projects
-I'm not the only one creating similar cookie-cutter projects:
- - https://github.com/Reproducible-Science-Curriculum/rr-init
+##Step 4 – Model Evaluation – 04_model_evaluation.R
+
+This step looks at the predictions for each model to determine which one is the best.  You can run this script to see predictions and test the models.
+
+![copper](results/predict_copper.jpeg)
+![zinc](results/predict_zinc.jpg)
+
+The blue line shows the true price of zinc and copper.  The simple linear regression model has the most error.  It dramatically overpredicts values before 2015, and underpredicts values afterwards.  The random forest models are better predictors for both copper and zinc.  Future analysis should explain why the price of zinc increased in 2016.
+
+##Conclusion
+
+Linear regression is not a good fit for the data, and the predictions from the ARIMA model are too broad.  The Neural Network and Random Forest models are promising, but they need more data.  There is not enough information to build a model that predicts quarterly prices.  Instead the analysis should be repeated with either bi-monthly or daily prices. Deep learning techniques need a lot of data in order to build a good model.  
+
+Suggestions for future analysis:
+Python and the Keras or Tensorflow library should be used to build a Long short-term memory (LSTM) model with either daily or monthly prices. 
+
+
+
+

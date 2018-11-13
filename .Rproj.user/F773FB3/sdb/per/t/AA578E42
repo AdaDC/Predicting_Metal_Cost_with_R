@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "###################################################\n#  Data Prep: Historical Copper and Zinc Prices   #\n#  AUTHOR: Adamma Morrison                        #\n#  Nov 10, 2018                                   #\n###################################################\n\n## The data for this analysis was pulled from https://fred.stlouisfed.org.  It contains\n## quarterly information for 13 variables.  The first two variables contain the price\n## for copper and zinc.\n\n# First load necessary libraries\nrequire(dplyr)\n\n# Then load information\ndata <- read.csv(\"data/fredgraph.csv\")\n\n# Preview the data\nhead(data)\n\n## The S&P500 data is missing for 1991-2008. We can pull this data from https://datahub.io/core/s-and-p-500#r\n\n## Import from datahub.io\nrequire(\"jsonlite\")\njson_file <- 'https://datahub.io/core/s-and-p-500/datapackage.json'\njson_data <- fromJSON(paste(readLines(json_file), collapse=\"\"))\n# get list of all resources:\nprint(json_data$resources$name)\n# print all tabular data(if exists any)\nfor(i in 1:length(json_data$resources$datahub$type)){\n  if(json_data$resources$datahub$type[i]=='derived/csv'){\n    path_to_file = json_data$resources$path[i]\n    missing <- read.csv(url(path_to_file)) #missing is called data on the script from the website. rename to avoid overwritting our data\n    print(data)\n  }\n}\n\n## We only need first two columns of missing, which contain the date and SP500\nmissing <- missing[1:2]\n## Delete json_file and json_data, since they take up a lot of memory\njson_data <- NULL\njson_file <- NULL\n\n\n## missing contains SP500 data for every month since 1871, but we only need January, April, July, and October for 1991-2008\n## We use the following command to pull a list of all the dates that we need.  \nmissing_dates <- data$DATE[data$SP500 == \".\"] # pull a list of every date that has \".\" in the column for SP500\n\n## Now extract the dates and SP500 info for the 72 missing dates\nneed <- subset(missing, missing$Date %in% missing_dates)\n\n## Join this info together\ndata$SP500 <- as.character(data$SP500)\ndata$SP500[1:72] <- need$SP500[1:72]\n\n## For clarity, rename variables\ncolnames(data) <- c(\"date\", \"copper_price\", \"zinc_price\", \"libor12\", \"libor3\", \"crude_oil\", \"natural_gas\", \"sp500\", \"nasdaq\", \"industrial_mining\", \"pc_copper\", \"pc_zinc\", \"pc_gdp\")\n\n## Save this cleaned data into new file\n#write.csv(data, \"data/cleaned_data.csv\", row.names = F)\n\n\n",
+    "created" : 1542074932594.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "885611578",
+    "id" : "AA578E42",
+    "lastKnownWriteTime" : 1542075079,
+    "last_content_update" : 1542075079206,
+    "path" : "~/Desktop/computational-project-cookie-cutter/src/01_data_cleaning.R",
+    "project_path" : "src/01_data_cleaning.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
